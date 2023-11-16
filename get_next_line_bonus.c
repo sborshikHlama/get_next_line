@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aevstign <aevstign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 16:00:33 by aevstign          #+#    #+#             */
-/*   Updated: 2023/11/16 19:27:03 by aevstign         ###   ########.fr       */
+/*   Created: 2023/11/16 19:22:13 by aevstign          #+#    #+#             */
+/*   Updated: 2023/11/16 19:42:57 by aevstign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 char	*get_next_line(int fd)
 {
 	char		*line;
-	static char	*string;
+	static char	*string[1000];
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
-	string = read_append(fd, string);
-	if (!string)
+	string[fd] = read_append(fd, string[fd]);
+	if (!string[fd])
 		return (NULL);
-	line = get_line(string);
-	string = update_line(string);
+	line = get_line(string[fd]);
+	string[fd] = update_line(string[fd]);
 	return (line);
 }
 
@@ -50,16 +50,3 @@ char	*read_append(int fd, char *string)
 	free(tmp);
 	return (string);
 }
-
-// int	main(void)
-// {
-// 	int		fd;
-// 	char	*line;
-// 	int		lines;
-
-// 	lines = 1;
-// 	fd = open("test.txt", O_RDONLY);
-// 	while ((line = get_next_line(fd)))
-// 		printf("%d->%s\n", lines++, line);
-// 	return (0);
-// }

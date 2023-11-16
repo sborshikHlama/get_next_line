@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aevstign <aevstign@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 16:24:39 by aevstign          #+#    #+#             */
-/*   Updated: 2023/11/16 19:39:29 by aevstign         ###   ########.fr       */
+/*   Created: 2023/11/16 19:23:39 by aevstign          #+#    #+#             */
+/*   Updated: 2023/11/16 19:39:08 by aevstign         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 size_t	ft_strlen_gnl(char *s)
 {
